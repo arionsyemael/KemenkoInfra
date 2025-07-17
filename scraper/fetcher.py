@@ -1,6 +1,7 @@
 import requests
 from config.settings import BASE_URL, HEADERS
 
+
 def fetch_all_pages():
     html_pages = []
     i = 0
@@ -15,8 +16,10 @@ def fetch_all_pages():
             response = requests.get(url, headers=HEADERS)
             response.raise_for_status()
 
-            if '<article' not in response.text:
-                print(f"[INFO] Tidak ada artikel lagi di halaman {i + 1}, berhenti.")
+            if "<article" not in response.text:
+                print(
+                    f"[INFO] Tidak ada artikel lagi di halaman {i + 1}, proses dihentikan :3."
+                )
                 break
 
             html_pages.append(response.text)

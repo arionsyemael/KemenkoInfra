@@ -3,6 +3,8 @@
 📁 Repository ini merupakan bagian dari project magang yang bertujuan untuk mengumpulkan data berita dari situs resmi Kementerian Koordinator Bidang Kemaritiman dan Investasi Republik Indonesia (kemenkoinfra.go.id) secara otomatis, terstruktur, dan terjadwal.
 
 🧠 Tujuan Project
+
+
 Melakukan web scraping berita dari situs kemenkoinfra.go.id/category/berita.
 
 Mengekstrak informasi penting: judul, tanggal, dan tautan berita.

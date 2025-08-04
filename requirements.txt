@@ -1,0 +1,5 @@
+beautifulsoup4==4.13.3
+requests
+pytrends
+apache-airflow==2.9.0
+pytrends

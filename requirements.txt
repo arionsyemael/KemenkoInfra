@@ -1,5 +1,16 @@
+# Web Scraping & Google Trends
 beautifulsoup4==4.13.3
-requests
-pytrends
+lxml
+requests==2.31.0
+pytrends==4.9.2
+
+# Apache Airflow Core
 apache-airflow==2.9.0
-pytrends
+
+# Airflow Providers (optional, jika digunakan dalam DAG)
+apache-airflow-providers-http
+apache-airflow-providers-google
+
+# Data manipulation & date handling (opsional tapi disarankan)
+pandas
+python-dateutil

@@ -9,10 +9,11 @@ x-airflow-common: &airflow-common
     AIRFLOW__WEBSERVER__DEFAULT_UI_TIMEZONE: Asia/Jakarta
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
     AIRFLOW__CORE__ENABLE_XCOM_PICKLING: "true"
-    PYTHONPATH: /opt/airflow/Scraping:/opt/airflow  # << tambah PYTHONPATH
+    PYTHONPATH: /opt/airflow/Scraping:/opt/airflow
   volumes:
     - ./dags:/opt/airflow/dags
     - ./Scraping:/opt/airflow/Scraping
+    - ./requirements.txt:/requirements.txt
   depends_on:
     - postgres
   restart: always
@@ -32,6 +33,7 @@ services:
     <<: *airflow-common
     entrypoint: >
       bash -c "
+      pip install -r /requirements.txt &&
       airflow db migrate &&
       airflow users create \
         --username airflow \
@@ -46,15 +48,15 @@ services:
 
   airflow-webserver:
     <<: *airflow-common
-    command: webserver
+    command: >
+      bash -c "pip install -r /requirements.txt && airflow webserver"
     ports:
       - "8080:8080"
-    restart: always
 
   airflow-scheduler:
     <<: *airflow-common
-    command: scheduler
-    restart: always
+    command: >
+      bash -c "pip install -r /requirements.txt && airflow scheduler"
 
 volumes:
   postgres-db-volume:

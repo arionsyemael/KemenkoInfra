@@ -497,6 +497,44 @@ def create_enhanced_analysis(news_data, trends_data):
         }
     }
 
+def clean_keywords(titles):
+    """Extract meaningful keywords from titles"""
+    # Define important terms explicitly
+    important_terms = [
+        "kemenko infra",
+        "kementerian koordinator",
+        "infrastruktur dan investasi", 
+        "pembangunan infrastruktur",
+        "koordinasi pembangunan",
+        "pengembangan wilayah",
+        "ahy",
+        "ici",
+        "seawall",
+        "sea wall"
+    ]
+
+    # Add variations and combinations
+    variations = [
+        "infrastruktur nasional",
+        "menko ahy",
+        "pembangunan berkelanjutan",
+        "koordinasi infrastruktur",
+        "pengembangan infrastruktur"
+    ]
+
+    all_terms = set(important_terms + variations)
+    
+    # Extract matching terms from titles
+    matches = {}
+    for term in all_terms:
+        count = sum(1 for title in titles if term.lower() in title.lower())
+        if count > 0:
+            matches[term] = count
+    
+    # Sort by frequency
+    sorted_terms = sorted(matches.items(), key=lambda x: x[1], reverse=True)
+    return [term for term, _ in sorted_terms]
+
 def main():
     # 1. Jalankan scraper untuk data terbaru
     try:

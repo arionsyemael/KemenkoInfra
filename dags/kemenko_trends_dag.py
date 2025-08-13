@@ -42,6 +42,9 @@ def clean_keywords(titles):
             "adalah",
             "ini",
             "itu",
+            "untuk",
+            "sebagai",
+            "juga",
         ]
     )
 
@@ -51,6 +54,11 @@ def clean_keywords(titles):
         "pembangunan infrastruktur",
         "infrastruktur nasional",
         "koordinasi pembangunan",
+        "ahy",
+        "sea wall",
+        "seawall",
+        "tanggul laut",
+        "kemenko infrastruktur",
     }
 
     phrases = set()

@@ -14,3 +14,10 @@ apache-airflow-providers-google
 # Data manipulation & date handling (opsional tapi disarankan)
 pandas
 python-dateutil
+
+plotly
+pandas
+kaleido
+wordcloud 
+matplotlib 
+seaborn
